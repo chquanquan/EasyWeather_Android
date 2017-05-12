@@ -1,5 +1,6 @@
 package chq.example.com.easyweather;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -24,6 +25,7 @@ import java.io.IOException;
 
 import chq.example.com.easyweather.gson.Forecast;
 import chq.example.com.easyweather.gson.Weather;
+import chq.example.com.easyweather.service.AutoUpdateService;
 import chq.example.com.easyweather.util.HttpUtil;
 import chq.example.com.easyweather.util.Utility;
 import okhttp3.Call;
@@ -182,6 +184,11 @@ public class WeatherActivity extends AppCompatActivity {
 
     //展示天气数据
     private void showWeatherInfo(Weather weather) {
+
+        //启动后台服务
+        Intent intent = new Intent(WeatherActivity.this, AutoUpdateService.class);
+        startService(intent);
+
         String cityName = weather.basic.cityName;
         String updateTime = weather.basic.update.updateTime.split(" ")[1];
         String degree = weather.now.temperature + "°C";
