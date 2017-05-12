@@ -39,5 +39,5 @@ captures/
 # Keystore files
 *.jks
 
-#key files
+# key files
 gradle.properties
