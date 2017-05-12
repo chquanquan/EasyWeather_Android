@@ -28,6 +28,15 @@ android {
         }
     }
 
+    productFlavors {
+        qihoo {
+            applicationId "chq.example.com.easyweather.qihoo"
+        }
+        baidu {
+            applicationId "chq.example.com.easyweather.baidu"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
